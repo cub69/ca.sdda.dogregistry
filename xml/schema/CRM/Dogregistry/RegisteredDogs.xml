@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<table>
+  <base>CRM/Dogregistry</base>
+  <class>RegisteredDogs</class>
+  <name>civicrm_registered_dogs</name>
+  <comment>Registered Dogs</comment>
+  <add>4.4</add>
+  <log>true</log>
+
+  <field>
+    <name>id</name>
+    <type>int unsigned</type>
+    <required>true</required>
+    <comment>Unique RegisteredDogs ID</comment>
+    <add>4.4</add>
+  </field>
+  <primaryKey>
+    <name>id</name>
+    <autoincrement>false</autoincrement>
+  </primaryKey>
+
+  <field>
+    <name>contact_id</name>
+    <type>int unsigned</type>
+    <comment>FK to Contact</comment>
+    <add>4.4</add>
+  </field>
+  <foreignKey>
+    <name>contact_id</name>
+    <table>civicrm_contact</table>
+    <key>id</key>
+    <add>4.4</add>
+    <onDelete>CASCADE</onDelete>
+  </foreignKey>
+ <field>
+    <name>registered_name</name>
+    <type>varchar</type>
+    <comment>Registered dog Name</comment>
+    <add>4.4</add>
+ </field>
+ <field>
+    <name>call_name</name>
+    <type>varchar</type>
+    <comment>Dogs Call Name</comment>
+    <add>4.4</add>
+ </field>
+  <field>
+    <name>preferred_name</name>
+    <type>varchar</type>
+    <comment>Name for certs</comment>
+    <add>4.4</add>
+ </field>
+ <field>
+    <name>sex</name>
+    <type>varchar</type>
+    <comment>Dog gender</comment>
+    <add>4.4</add>
+ </field>
+ <field>
+    <name>altered</name>
+    <type>varchar</type>
+    <comment>Spayed or Neutered</comment>
+    <add>4.4</add>
+ </field>
+ <field>
+    <name>date_of_birth</name>
+    <type>varchar</type>
+    <comment>Date of birth</comment>
+    <add>4.4</add>
+ </field>
+ <field>
+    <name>active_date</name>
+    <type>varchar</type>
+    <comment>Active date</comment>
+    <add>4.4</add>
+ </field>
+ <field>
+    <name>inactive_date</name>
+    <type>varchar</type>
+    <comment>Inactive Date</comment>
+    <add>4.4</add>
+ </field>
+ <field>
+    <name>breed_name</name>
+    <type>varchar</type>
+    <comment>Dog breed</comment>
+    <add>4.4</add>
+ </field>
+ <field>
+    <name>other_titles</name>
+    <type>varchar</type>
+    <comment>Scent titles</comment>
+    <add>4.4</add>
+ </field>
+ <field>
+    <name>other_title_description</name>
+    <type>varchar</type>
+    <comment>Other titles</comment>
+    <add>4.4</add>
+ </field>
+</table>

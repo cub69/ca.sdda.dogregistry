@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<menu>
+  <item>
+    <path>civicrm/listregdogs</path>
+    <page_callback>CRM_Dogregistry_Page_ListRegDogs</page_callback>
+    <title>ListRegDogs</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+  <item>
+    <path>civicrm/editdog</path>
+    <page_callback>CRM_Dogregistry_Form_EditDog</page_callback>
+    <title>EditDog</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+</menu>
