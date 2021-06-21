@@ -114,7 +114,7 @@ public $_cid;
 	);
 	$this->add(
 		'text',
-		'other_title_description',
+		'other_title_description', 
 		'Other Title Description',
 		TRUE
 	);

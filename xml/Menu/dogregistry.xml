@@ -12,4 +12,10 @@
     <title>EditDog</title>
     <access_arguments>access CiviCRM</access_arguments>
   </item>
+  <item>
+    <path>civicrm/listdogs</path>
+    <page_callback>CRM_Dogregistry_Form_Listdogs</page_callback>
+    <title>Listdogs</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
 </menu>
