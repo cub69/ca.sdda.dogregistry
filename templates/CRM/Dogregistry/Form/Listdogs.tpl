@@ -53,7 +53,7 @@ CRM.$(function($) {
     <td>{$dog.registered_name}</td>
     <td>{$dog.call_name}</td>
     <td>{$dog.date_of_birth}</td>
-    <td><a title="Retire" class="button_name button" href='javascript:retire({$dog.id})'>Retire</td></tr>
+    <td><a title="Retire" class="button_name button" href='javascript:retire({$dog.id})'>Retire<a title="transfer" class="button_name button" href='javascript:transfer({$dog.id})'>Transfer</td></tr>
   {/if}
 {/foreach}
 </table>
