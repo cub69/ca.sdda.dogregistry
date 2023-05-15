@@ -32,7 +32,7 @@ function deleteDog(id){
 <td>{$registereddogs.inactive_date}</td>
 <td>{$registereddogs.breed_name}</td>
 <td>{$registereddogs.other_titles}</td>
-<td><a href="{$url}&reset=1&action=update&id={$registereddogs.id}" class="crm-popup"> Edit </a><a href="javascript:deleteDog({$registereddogs.id})"> Delete </a></td></tr>
+<td><a href="{$url}&reset=1&action=update&id={$registereddogs.id}" class="crm-popup"> Edit </a></br><a href="{$url}&reset=1&action=transfer&id={$registereddogs.id}" class="crm-popup"> Transfer </a></br><a href="javascript:deleteDog({$registereddogs.id})"> Delete </a></td></tr>
 {/foreach}
 <a title="Add a Dog" class="button_name button crm-popup" href="{$url}&reset=1&action=add&cid={$uid}">
   <span>Add Dog</span>
