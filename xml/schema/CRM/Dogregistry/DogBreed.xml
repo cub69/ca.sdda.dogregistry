@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<table>
+  <base>CRM/Dogregistry</base>
+  <class>DogBreed</class>
+  <name>civicrm_dog_breed</name>
+  <comment>List of available breeds for registration</comment>
+  <log>true</log>
+
+  <field>
+    <name>id</name>
+    <type>int unsigned</type>
+    <required>true</required>
+    <comment>Unique DogBreed ID</comment>
+    <html>
+      <type>Number</type>
+    </html>
+  </field>
+  <primaryKey>
+    <name>id</name>
+    <autoincrement>true</autoincrement>
+  </primaryKey>
+
+  <field>
+    <name>Breed</name>
+    <type>text</type>
+    <comment>Dog Breed</comment>
+  </field>
+  
+
+</table>
