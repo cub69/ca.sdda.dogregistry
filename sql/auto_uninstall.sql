@@ -15,6 +15,9 @@
 
 SET FOREIGN_KEY_CHECKS=0;
 
+DROP TABLE IF EXISTS `civicrm_dog_titles`;
+DROP TABLE IF EXISTS `civicrm_dog_scores`;
+DROP TABLE IF EXISTS `civicrm_trial_levels`;
 DROP TABLE IF EXISTS `civicrm_registered_dogs`;
 DROP TABLE IF EXISTS `civicrm_dog_breed`;
 

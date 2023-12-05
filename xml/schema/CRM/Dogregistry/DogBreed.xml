@@ -4,7 +4,7 @@
   <base>CRM/Dogregistry</base>
   <class>DogBreed</class>
   <name>civicrm_dog_breed</name>
-  <comment>List of available breeds for registration</comment>
+  <comment>FIXME</comment>
   <log>true</log>
 
   <field>
@@ -22,10 +22,9 @@
   </primaryKey>
 
   <field>
-    <name>Breed</name>
-    <type>text</type>
-    <comment>Dog Breed</comment>
+    <name>breed</name>
+    <type>varchar</type>
+    <comment>Breeds</comment>
   </field>
-  
 
 </table>

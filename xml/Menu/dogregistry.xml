@@ -13,9 +13,15 @@
     <access_arguments>access CiviCRM</access_arguments>
   </item>
   <item>
-    <path>civicrm/listdogs</path>
-    <page_callback>CRM_Dogregistry_Form_Listdogs</page_callback>
-    <title>Listdogs</title>
+    <path>civicrm/updatescores</path>
+    <page_callback>CRM_Dogregistry_Page_UpdateScores</page_callback>
+    <title>UpdateScores</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+  <item>
+    <path>civicrm/your-dog-card</path>
+    <page_callback>CRM_Dogregistry_Page_YourDogCard</page_callback>
+    <title>YourDogCard</title>
     <access_arguments>access CiviCRM</access_arguments>
   </item>
 </menu>

@@ -9,7 +9,6 @@ function deleteDog(id){
   "id": id
 	}).done(function(result) {
   		CRM.alert("Dog is deleted");
-		CRM.refresh;
 	});
   })
   .on('crmConfirm:no', function() {
@@ -32,8 +31,8 @@ function deleteDog(id){
 <td>{$registereddogs.inactive_date}</td>
 <td>{$registereddogs.breed_name}</td>
 <td>{$registereddogs.other_titles}</td>
-<td><a href="{$url}&reset=1&action=update&id={$registereddogs.id}" class="button_name button crm-popup"> Edit </a><a href="{$url2}#?dogid={$registereddogs.id}" target="_blank" class="button_name button crm-popup" > Scores </a><a href="{$url3}#?dogid={$registereddogs.id}" target="_blank" class="button_name button crm-popup" > Titles </a><a href="javascript:deleteDog({$registereddogs.id})" class="button_name button"> Delete </a></td></tr>
+<td><a href="{$url}&reset=1&action=update&id={$registereddogs.id}" class="crm-popup"> Edit </a><a href="javascript:deleteDog({$registereddogs.id})"> Delete </a></td></tr>
 {/foreach}
-<a title="Add a Dog" class="button_name button crm-popup" href="{$url}&reset=1&action=add&cid={$uid}">
+<a title="Add a Dog" class="button_name button crm-popup" href="{$url}&reset=1&action=add&cid={$registereddogs.contact_id}">
   <span>Add Dog</span>
 </a>

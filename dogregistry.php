@@ -41,17 +41,17 @@ function dogregistry_civicrm_enable() {
  // */
 
 
-function dogregistry_civicrm_tabset($tabsetName, &$tabs, $context) {
+/*function dogregistry_civicrm_tabset($tabsetName, &$tabs, $context) {
   
    if ($tabsetName == 'civicrm/contact/view') {
 	$contactId = $context['contact_id'];
 
   $dogs = civicrm_api3('RegisteredDogs', 'getcount', ['contact_id' => $contactId,]);
-	$url = CRM_Utils_System::url( 'civicrm/listregdogs', "reset=1&force=1&cid={$contactId}");
+	$url = CRM_Utils_System::url( 'civicrm/admin-your-registered-dogs');
   	$tabs[] = array( 'id'    => 'Registered Dogs',
                    'url'   => $url,
                    'title' => 'Registered Dogs',
                    'count' => $dogs,
                    'weight' => 99 );
   }
-}
+} */

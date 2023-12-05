@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<table>
+  <base>CRM/Dogregistry</base>
+  <class>DogTitles</class>
+  <name>civicrm_dog_titles</name>
+  <comment>Import data for dog titles from Access</comment>
+  <log>true</log>
+
+  <field>
+    <name>dogId</name>
+    <type>int</type>
+    <required>true</required>
+    <comment>Unique DogTitles ID</comment>
+    <html>
+      <type>Number</type>
+    </html>
+  </field>
+  <primaryKey>
+    <name>dogId</name>
+    <autoincrement>true</autoincrement>
+  </primaryKey>
+  <foreignKey>
+    <name>dogId</name>
+    <table>civicrm_registered_dogs</table>
+    <key>id</key>
+  </foreignKey>
+
+  <field>
+    <name>description</name>
+    <type>varchar</type>
+    <length>50</length>
+    <comment>Title Name</comment>
+  </field>
+  <field>
+    <name>Honours</name>
+    <type>varchar</type>
+    <length>2</length>
+    <comment>Determine if a special title</comment>
+  </field>
+<field>
+    <name>titleScore</name>
+    <type>INT</type>
+    <comment>Score</comment>
+  </field>
+  <field>
+    <name>titleDate</name>
+    <type>DATE</type>
+    <comment>Title DATE</comment>
+  </field>
+</table>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<table>
+  <base>CRM/Dogregistry</base>
+  <class>DogScores</class>
+  <name>civicrm_dog_scores</name>
+  <comment>Dog Score Table</comment>
+  <log>true</log>
+
+  <field>
+    <name>id</name>
+    <type>int unsigned</type>
+    <required>true</required>
+    <comment>Unique DogScores ID</comment>
+    <html>
+      <label>Dogscore ID</label>
+    </html>
+  </field>
+  <primaryKey>
+    <name>id</name>
+    <autoincrement>false</autoincrement>
+  </primaryKey>
+  <field>
+    <name>Event</name>
+    <type>int unsigned</type>
+    <comment>Registered event</comment>
+    <html>
+      <label>Event Id</label>
+    </html>
+  </field>
+  <primaryKey>
+    <name>Event</name>
+    <autoincrement>false</autoincrement>
+  </primaryKey>
+  <field>
+    <name>Levels</name>
+    <type>varchar</type>
+    <length>5</length>
+    <comment>FK to Trial Levels</comment>
+    <html>
+      <label>Trial Level</label>
+    </html>
+  </field>
+  <primaryKey>
+    <name>Levels</name>
+    <autoincrement>false</autoincrement>
+  </primaryKey>
+  <foreignKey>
+    <name>Levels</name>
+    <table>civicrm_trial_levels</table>
+    <key>id</key>
+  </foreignKey>
+  <field>
+    <name>DogId</name>
+    <type>int unsigned</type>
+    <comment>FK to Registered Dogs</comment>
+    <html>
+      <label>Registered Dog ID</label>
+    </html>
+  </field>
+  <primaryKey>
+    <name>DogId</name>
+    <autoincrement>false</autoincrement>
+  </primaryKey>
+   <foreignKey>
+    <name>DogId</name>
+    <table>civicrm_registered_dogs</table>
+    <key>id</key>
+  </foreignKey>
+  <field>
+    <name>Stream</name>
+    <type>varchar</type>
+    <length>15</length>
+    <comment>A or W</comment>
+    <html>
+      <label>Stream</label>
+    </html>
+  </field>
+  <primaryKey>
+    <name>Stream</name>
+    <autoincrement>false</autoincrement>
+  </primaryKey>
+  <field>
+    <name>Sequence</name>
+    <type>int</type>
+    <comment>FK to Registered Dogs</comment>
+    <html>
+      <label>Sequence</label>
+    </html>
+  </field>
+  <field>
+    <name>HandlerId</name>
+    <type>int</type>
+    <comment>FK to contact ID</comment>
+    <html>
+      <type>Select</type>
+      <label>Contact ID</label>
+    </html>
+  </field>
+  <foreignKey>
+    <name>HandlerId</name>
+    <table>civicrm_contact</table>
+    <key>id</key>
+  </foreignKey>
+  <field>
+    <name>Score</name>
+    <type>int unsigned</type>
+    <comment>value of score</comment>
+    <html>
+      <label>Score</label>
+    </html>
+  </field>
+  <field>
+    <name>Pass</name>
+    <type>int</type>
+    <comment>Passed</comment>
+    <html>
+      <label>Pass</label>
+    </html>
+  </field>
+  <field>
+    <name>Event_date</name>
+    <type>datetime</type>
+    <comment>Date of score</comment>
+    <html>
+      <label>Event Date</label>
+    </html>
+  </field>
+  <field>
+    <name>Judge</name>
+    <type>int</type>
+    <comment>Judge contact id</comment>
+    <html>
+      <label>Judge Contact ID</label>
+    </html>
+  </field>
+  <field>
+    <name>UsedForFirstTitle</name>
+    <type>int</type>
+    <comment>first title use</comment>
+    <html>
+      <label>Used for First Title</label>
+    </html>
+  </field>
+</table>

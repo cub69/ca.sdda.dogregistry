@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<table>
+  <base>CRM/Dogregistry</base>
+  <class>TrialLevels</class>
+  <name>civicrm_trial_levels</name>
+  <comment>The trial levels that are offered</comment>
+  <log>true</log>
+  <field>
+    <name>id</name>
+    <type>text</type>
+    <length>5</length>
+    <required>true</required>
+    <comment>Unique TrialLevels ID</comment>
+    <html>
+      <type>Number</type>
+    </html>
+  </field>
+  <primaryKey>
+    <name>id</name>
+    <unique>true</unique>
+  </primaryKey>
+  <field>
+    <name>Description</name>
+    <type>varchar</type>
+    <length>50</length>
+    <comment>Description</comment>
+    <html>
+      <label>Description</label>
+    </html>
+  </field>
+  <field>
+    <name>Level</name>
+    <type>INT</type>
+    <length>6</length>
+    <comment>Level</comment>
+    <html>
+      <label>Level</label>
+    </html>
+  </field>
+  <field>
+    <name>MaxPoints</name>
+    <type>INT</type>
+    <length>6</length>
+    <comment>Maximum points</comment>
+    <html>
+      <label>Maximum points</label>
+    </html>
+  </field>
+  <field>
+    <name>PassPoints</name>
+    <type>INT</type>
+    <length>6</length>
+    <comment>Pass points</comment>
+    <html>
+      <label>Pass points</label>
+    </html>
+  </field>
+  <field>
+    <name>Weight</name>
+    <type>INT</type>
+    <length>6</length>
+    <comment>Weight</comment>
+    <html>
+      <label>Weight</label>
+    </html>
+  </field>
+
+</table>
+

@@ -17,6 +17,9 @@
 
 SET FOREIGN_KEY_CHECKS=0;
 
+DROP TABLE IF EXISTS `civicrm_dog_titles`;
+DROP TABLE IF EXISTS `civicrm_dog_scores`;
+DROP TABLE IF EXISTS `civicrm_trial_levels`;
 DROP TABLE IF EXISTS `civicrm_registered_dogs`;
 DROP TABLE IF EXISTS `civicrm_dog_breed`;
 
@@ -31,12 +34,12 @@ SET FOREIGN_KEY_CHECKS=1;
 -- *
 -- * civicrm_dog_breed
 -- *
--- * List of available breeds for registration
+-- * FIXME
 -- *
 -- *******************************************************/
 CREATE TABLE `civicrm_dog_breed` (
   `id` int unsigned NOT NULL AUTO_INCREMENT COMMENT 'Unique DogBreed ID',
-  `Breed` text COMMENT 'Dog Breed',
+  `breed` varchar(0) COMMENT 'Breeds',
   PRIMARY KEY (`id`)
 )
 ENGINE=InnoDB;
@@ -50,19 +53,84 @@ ENGINE=InnoDB;
 -- *******************************************************/
 CREATE TABLE `civicrm_registered_dogs` (
   `id` int unsigned NOT NULL AUTO_INCREMENT COMMENT 'Unique RegisteredDogs ID',
-  `contact_id` int unsigned COMMENT 'FK to Contact',
-  `registered_name` varchar(0) COMMENT 'Registered dog Name',
-  `call_name` varchar(0) COMMENT 'Dogs Call Name',
-  `preferred_name` varchar(0) COMMENT 'Name for certs',
-  `sex` varchar(0) COMMENT 'Dog gender',
-  `altered` varchar(0) COMMENT 'Spayed or Neutered',
-  `date_of_birth` varchar(0) COMMENT 'Date of birth',
-  `active_date` varchar(0) COMMENT 'Active date',
-  `inactive_date` varchar(0) COMMENT 'Inactive Date',
-  `breed_name` varchar(0) COMMENT 'Dog breed',
-  `other_titles` varchar(0) COMMENT 'Scent titles',
-  `other_title_description` varchar(0) COMMENT 'Other titles',
+  `contact_id` int unsigned NULL COMMENT 'FK to Contact',
+  `registered_name` varchar(50) NULL COMMENT 'Registered dog Name',
+  `call_name` varchar(50) NULL COMMENT 'Call Name',
+  `preferred_name` varchar(15) NULL COMMENT 'Name for certs',
+  `sex` varchar(10) NULL COMMENT 'Dog gender',
+  `altered` char(3) NULL COMMENT 'Spayed or Neutered',
+  `date_of_birth` DATE NULL COMMENT 'Date of birth',
+  `active_date` DATE COMMENT 'Active date',
+  `inactive_date` DATE NULL COMMENT 'Inactive Date',
+  `breed_name` varchar(255) NULL COMMENT 'Dog breed',
+  `breed` int NULL COMMENT 'FK to Dog breed',
+  `other_titles` varchar(255) NULL COMMENT 'Scent titles',
+  `other_title_description` varchar(255) NULL COMMENT 'Other titles',
   PRIMARY KEY (`id`),
-  CONSTRAINT FK_civicrm_registered_dogs_contact_id FOREIGN KEY (`contact_id`) REFERENCES `civicrm_contact`(`id`) ON DELETE CASCADE
+  CONSTRAINT FK_civicrm_registered_dogs_contact_id FOREIGN KEY (`contact_id`) REFERENCES `civicrm_contact`(`id`) ON DELETE SET NULL,
+  CONSTRAINT FK_civicrm_registered_dogs_breed FOREIGN KEY (`breed`) REFERENCES `civicrm_dog_breed`(`id`)
+)
+ENGINE=InnoDB;
+
+-- /*******************************************************
+-- *
+-- * civicrm_trial_levels
+-- *
+-- * The trial levels that are offered
+-- *
+-- *******************************************************/
+CREATE TABLE `civicrm_trial_levels` (
+  `id` text NOT NULL COMMENT 'Unique TrialLevels ID',
+  `Description` varchar(50) COMMENT 'Description',
+  `Level` INT COMMENT 'Level',
+  `MaxPoints` INT COMMENT 'Maximum points',
+  `PassPoints` INT COMMENT 'Pass points',
+  `Weight` INT COMMENT 'Weight',
+  PRIMARY KEY (`id`)
+)
+ENGINE=InnoDB;
+
+-- /*******************************************************
+-- *
+-- * civicrm_dog_scores
+-- *
+-- * Dog Score Table
+-- *
+-- *******************************************************/
+CREATE TABLE `civicrm_dog_scores` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT COMMENT 'Unique DogScores ID',
+  `Event` int unsigned COMMENT 'Registered event',
+  `Levels` varchar(5) COMMENT 'FK to Trial Levels',
+  `DogId` int unsigned COMMENT 'FK to Registered Dogs',
+  `Stream` varchar(15) COMMENT 'A or W',
+  `Sequence` int COMMENT 'FK to Registered Dogs',
+  `HandlerId` int COMMENT 'FK to contact ID',
+  `Score` int unsigned COMMENT 'value of score',
+  `Pass` int COMMENT 'Passed',
+  `Event_date` datetime COMMENT 'Date of score',
+  `Judge` int COMMENT 'Judge contact id',
+  `UsedForFirstTitle` int COMMENT 'first title use',
+  PRIMARY KEY (`id`),
+  CONSTRAINT FK_civicrm_dog_scores_Levels FOREIGN KEY (`Levels`) REFERENCES `civicrm_trial_levels`(`id`),
+  CONSTRAINT FK_civicrm_dog_scores_DogId FOREIGN KEY (`DogId`) REFERENCES `civicrm_registered_dogs`(`id`),
+  CONSTRAINT FK_civicrm_dog_scores_HandlerId FOREIGN KEY (`HandlerId`) REFERENCES `civicrm_contact`(`id`)
+)
+ENGINE=InnoDB;
+
+-- /*******************************************************
+-- *
+-- * civicrm_dog_titles
+-- *
+-- * Import data for dog titles from Access
+-- *
+-- *******************************************************/
+CREATE TABLE `civicrm_dog_titles` (
+  `dogId` int NOT NULL AUTO_INCREMENT COMMENT 'Unique DogTitles ID',
+  `description` varchar(50) COMMENT 'Title Name',
+  `Honours` varchar(2) COMMENT 'Determine if a special title',
+  `titleScore` INT COMMENT 'Score',
+  `titleDate` DATE COMMENT 'Title DATE',
+  PRIMARY KEY (`dogId`),
+  CONSTRAINT FK_civicrm_dog_titles_dogId FOREIGN KEY (`dogId`) REFERENCES `civicrm_registered_dogs`(`id`)
 )
 ENGINE=InnoDB;

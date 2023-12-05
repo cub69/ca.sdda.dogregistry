@@ -2,12 +2,12 @@
 namespace Civi\Api4;
 
 /**
- * DogBreed entity.
+ * DogTitles entity.
  *
  * Provided by the SDDA Dog Registry extension.
  *
  * @package Civi\Api4
  */
-class DogBreed extends Generic\DAOEntity {
+class DogTitles extends Generic\DAOEntity {
 
 }

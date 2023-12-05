@@ -14,88 +14,184 @@
     <required>true</required>
     <comment>Unique RegisteredDogs ID</comment>
     <add>4.4</add>
+    <html>
+      <label>Dog Number</label>
+      <type>INT</type>
+    </html>
   </field>
   <primaryKey>
     <name>id</name>
-    <autoincrement>false</autoincrement>
+    <autoincrement>true</autoincrement>
+    <unique>true</unique>
   </primaryKey>
 
   <field>
     <name>contact_id</name>
     <type>int unsigned</type>
+    <required>false</required>
     <comment>FK to Contact</comment>
     <add>4.4</add>
+    <html>
+      <label>Contact ID</label>
+      <type>EntityRef</type>
+    </html>
   </field>
   <foreignKey>
     <name>contact_id</name>
     <table>civicrm_contact</table>
     <key>id</key>
     <add>4.4</add>
-    <onDelete>CASCADE</onDelete>
+    <onDelete>SET NULL</onDelete>
   </foreignKey>
  <field>
     <name>registered_name</name>
     <type>varchar</type>
+    <length>50</length>
+    <required>false</required>
     <comment>Registered dog Name</comment>
     <add>4.4</add>
+    <html>
+      <label>Registered Name</label>
+      <type>Text</type>
+    </html>
  </field>
  <field>
     <name>call_name</name>
     <type>varchar</type>
-    <comment>Dogs Call Name</comment>
+    <length>50</length>
+    <required>false</required>
+    <comment>Call Name</comment>
     <add>4.4</add>
+    <html>
+      <label>Call Name</label>
+      <type>Text</type>
+    </html>
  </field>
   <field>
     <name>preferred_name</name>
     <type>varchar</type>
+    <length>15</length>
+    <required>false</required>
     <comment>Name for certs</comment>
     <add>4.4</add>
+    <html>
+      <label>Preferred Name</label>
+      <type>Radio</type>
+    </html>
+    <pseudoconstant>
+      <optionGroupName>preferred_dog_name</optionGroupName>
+    </pseudoconstant>
  </field>
+
  <field>
     <name>sex</name>
     <type>varchar</type>
+    <length>10</length>
+    <required>false</required>
     <comment>Dog gender</comment>
     <add>4.4</add>
+    <html>
+      <label>Sex</label>
+      <type>Radio</type>
+    </html>
+    <pseudoconstant>
+      <optionGroupName>dog_gender</optionGroupName>
+    </pseudoconstant>
  </field>
  <field>
     <name>altered</name>
-    <type>varchar</type>
+    <type>char</type>
+    <length>3</length>
+    <required>false</required>
     <comment>Spayed or Neutered</comment>
     <add>4.4</add>
+    <html>
+      <label>Altered</label>
+      <type>CheckBox</type>
+    </html>
  </field>
  <field>
     <name>date_of_birth</name>
-    <type>varchar</type>
+    <type>DATE</type>
+    <required>false</required>
     <comment>Date of birth</comment>
     <add>4.4</add>
+    <html>
+      <type>Select Date</type>
+      <formatType>birth</formatType>
+      <label>Date of Birth</label>
+    </html>
  </field>
  <field>
     <name>active_date</name>
-    <type>varchar</type>
+    <type>DATE</type>
     <comment>Active date</comment>
     <add>4.4</add>
+    <html>
+      <type>Select Date</type>
+      <formatType>birth</formatType>
+      <label>Active Date</label>
+    </html>
  </field>
  <field>
     <name>inactive_date</name>
-    <type>varchar</type>
+    <type>DATE</type>
+    <required>false</required>
     <comment>Inactive Date</comment>
     <add>4.4</add>
+    <html>
+      <type>Select Date</type>
+      <formatType>birth</formatType>
+      <label>Inactive Date</label>
+    </html>
  </field>
  <field>
     <name>breed_name</name>
     <type>varchar</type>
+    <length>255</length>
+    <required>false</required>
     <comment>Dog breed</comment>
     <add>4.4</add>
+    <html>
+      <label>Dog Breed</label>
+    </html>
+    
  </field>
+ <field>
+    <name>breed</name>
+    <type>int</type>
+    <length>11</length>
+    <required>false</required>
+    <comment>FK to Dog breed</comment>
+    <add>4.4</add>
+    <html>
+      <type>Select</type>
+      <label>Dog Breed</label>
+    </html>
+    <pseudoconstant> 
+      <table>civicrm_dog_breed</table>
+      <keyColumn>id</keyColumn>
+      <labelColumn>Breed</labelColumn>
+    </pseudoconstant>
+ </field>
+ <foreignKey>
+    <name>breed</name>
+    <table>civicrm_dog_breed</table>
+    <key>id</key>
+  </foreignKey>
  <field>
     <name>other_titles</name>
     <type>varchar</type>
+    <length>255</length>
+    <required>false</required>
     <comment>Scent titles</comment>
     <add>4.4</add>
  </field>
  <field>
     <name>other_title_description</name>
     <type>varchar</type>
+    <length>255</length>
+    <required>false</required>
     <comment>Other titles</comment>
     <add>4.4</add>
  </field>
